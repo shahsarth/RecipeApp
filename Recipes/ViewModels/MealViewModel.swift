@@ -12,6 +12,12 @@ import SwiftyJSON
 
 class MealViewModel : ObservableObject {
     
+    @Published var desserts : [Dessert]
+    
+    init() {
+        self.desserts = []
+    }
+    
     func downloadData(url: String, parameters: Parameters, completion: @escaping (JSON?) -> Void){
             
             let _ = AF.request(url, method: .get, parameters: parameters).responseJSON { response in
@@ -34,21 +40,22 @@ class MealViewModel : ObservableObject {
             var dessertList : [Dessert] = []
             for dessert in desserts {
                 print(dessert)
-//                let newDessert = Dessert(id: dessert["idMeal"], name: dessert["strMeal"], thumbnail: dessert["strMealThumb"])
-                
-                dessertList.append(Dessert(id: UUID(uuidString: "1")!, name: "test", thumbnail: "test"))
+                let dessertData = dessert.1
+                let newDessert = Dessert(id: dessertData["idMeal"].stringValue, name: dessertData["strMeal"].stringValue, thumbnail: dessertData["strMealThumb"].stringValue)
+                dessertList.append(newDessert)
             }
             return dessertList
         }
 
-    func fetchDesserts(token: String, completion: @escaping ([Dessert]) -> Void) {
+    func fetchDesserts() {
             let url = "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert"
             let parameters: Parameters = [:]
             
             downloadData(url: url, parameters: parameters){ retJSON in
                 if let json = retJSON {
                     let returnedData = self.parseDessertJSON(json: json)
-                    completion(returnedData)
+                    self.desserts = returnedData
+                    
                 }
             }
         }

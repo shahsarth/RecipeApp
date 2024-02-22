@@ -8,15 +8,27 @@
 import SwiftUI
 
 struct HomeView: View {
+    @ObservedObject var mealModel: MealViewModel
+    
+    func getDesserts() {
+        mealModel.fetchDesserts()
+    }
+    
     var body: some View {
-        // ScrollView of
-        Text("Home View")
-        
-        
-        
+        // ScrollView of Desserts in alphabetical order
+        ScrollView(.vertical){
+            LazyVStack {
+                ForEach(mealModel.desserts, id: \.id){ dessert in
+                    MealCardView(name: dessert.name)
+                }
+            }
+        }
+        .onAppear{
+            getDesserts()
+        }
     }
 }
 
 #Preview {
-    HomeView()
+    HomeView(mealModel: MealViewModel())
 }

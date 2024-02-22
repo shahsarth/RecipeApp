@@ -8,11 +8,11 @@
 import Foundation
 
 class Dessert: ObservableObject, Identifiable, Equatable, Hashable {
-    var id : UUID
+    var id : String
     var name: String
     var thumbnail: String
     
-    init(id: UUID, name: String, thumbnail: String) {
+    init(id: String, name: String, thumbnail: String) {
         self.id = id
         self.name = name
         self.thumbnail = thumbnail

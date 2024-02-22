@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct MealCardView: View {
+    var name: String
     var body: some View {
-        Text("Meal Card View")
+        Text(name)
     }
 }
 
 #Preview {
-    MealCardView()
+    MealCardView(name: "Molten Lava Cake")
 }
