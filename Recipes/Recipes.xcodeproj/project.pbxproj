@@ -14,6 +14,9 @@
 		AF41E5F02B86FBC700C72CF5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF41E5EF2B86FBC700C72CF5 /* Preview Assets.xcassets */; };
 		AF41E5FB2B86FD6100C72CF5 /* MealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41E5FA2B86FD6100C72CF5 /* MealViewModel.swift */; };
 		AF41E5FD2B86FDCF00C72CF5 /* Dessert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41E5FC2B86FDCF00C72CF5 /* Dessert.swift */; };
+		AF41E6092B8717C200C72CF5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41E6082B8717C200C72CF5 /* HomeView.swift */; };
+		AF41E60B2B8717CE00C72CF5 /* MealCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41E60A2B8717CE00C72CF5 /* MealCardView.swift */; };
+		AF41E60D2B8717D900C72CF5 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41E60C2B8717D900C72CF5 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		AF41E5EF2B86FBC700C72CF5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AF41E5FA2B86FD6100C72CF5 /* MealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewModel.swift; sourceTree = "<group>"; };
 		AF41E5FC2B86FDCF00C72CF5 /* Dessert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dessert.swift; sourceTree = "<group>"; };
+		AF41E6082B8717C200C72CF5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AF41E60A2B8717CE00C72CF5 /* MealCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCardView.swift; sourceTree = "<group>"; };
+		AF41E60C2B8717D900C72CF5 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		B0E95D6E9699A1363567C11C /* libPods-Recipes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Recipes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -94,6 +100,9 @@
 			isa = PBXGroup;
 			children = (
 				AF41E5EA2B86FBC400C72CF5 /* ContentView.swift */,
+				AF41E6082B8717C200C72CF5 /* HomeView.swift */,
+				AF41E60A2B8717CE00C72CF5 /* MealCardView.swift */,
+				AF41E60C2B8717D900C72CF5 /* DetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -219,8 +228,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF41E5EB2B86FBC400C72CF5 /* ContentView.swift in Sources */,
+				AF41E60B2B8717CE00C72CF5 /* MealCardView.swift in Sources */,
 				AF41E5E92B86FBC400C72CF5 /* RecipesApp.swift in Sources */,
+				AF41E60D2B8717D900C72CF5 /* DetailView.swift in Sources */,
 				AF41E5FD2B86FDCF00C72CF5 /* Dessert.swift in Sources */,
+				AF41E6092B8717C200C72CF5 /* HomeView.swift in Sources */,
 				AF41E5FB2B86FD6100C72CF5 /* MealViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

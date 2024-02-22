@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MealCardView.swift
 //  Recipes
 //
 //  Created by Sarth on 2/22/24.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MealCardView: View {
     var body: some View {
-        HomeView()
+        Text("Meal Card View")
     }
 }
 
 #Preview {
-    ContentView()
+    MealCardView()
 }

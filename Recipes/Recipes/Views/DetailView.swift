@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  DetailView.swift
 //  Recipes
 //
 //  Created by Sarth on 2/22/24.
@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct DetailView: View {
     var body: some View {
-        HomeView()
+        Text("Detail View")
     }
 }
 
 #Preview {
-    ContentView()
+    DetailView()
 }
