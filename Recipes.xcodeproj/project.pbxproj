@@ -17,6 +17,7 @@
 		AF41E6092B8717C200C72CF5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41E6082B8717C200C72CF5 /* HomeView.swift */; };
 		AF41E60B2B8717CE00C72CF5 /* MealCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41E60A2B8717CE00C72CF5 /* MealCardView.swift */; };
 		AF41E60D2B8717D900C72CF5 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41E60C2B8717D900C72CF5 /* DetailView.swift */; };
+		AF43B9952B87847500EC0EA8 /* ImageOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43B9942B87847500EC0EA8 /* ImageOverlayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		AF41E6082B8717C200C72CF5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		AF41E60A2B8717CE00C72CF5 /* MealCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCardView.swift; sourceTree = "<group>"; };
 		AF41E60C2B8717D900C72CF5 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		AF43B9942B87847500EC0EA8 /* ImageOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOverlayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +63,6 @@
 				26A7EAFACB26D5B6EEDA5EF1 /* Pods-Recipes.debug.xcconfig */,
 				286F79B8906E5A6E690A8A36 /* Pods-Recipes.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -109,6 +110,7 @@
 			children = (
 				AF41E5EA2B86FBC400C72CF5 /* ContentView.swift */,
 				AF41E6082B8717C200C72CF5 /* HomeView.swift */,
+				AF43B9942B87847500EC0EA8 /* ImageOverlayView.swift */,
 				AF41E60A2B8717CE00C72CF5 /* MealCardView.swift */,
 				AF41E60C2B8717D900C72CF5 /* DetailView.swift */,
 			);
@@ -246,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF41E5EB2B86FBC400C72CF5 /* ContentView.swift in Sources */,
+				AF43B9952B87847500EC0EA8 /* ImageOverlayView.swift in Sources */,
 				AF41E60B2B8717CE00C72CF5 /* MealCardView.swift in Sources */,
 				AF41E5E92B86FBC400C72CF5 /* RecipesApp.swift in Sources */,
 				AF41E60D2B8717D900C72CF5 /* DetailView.swift in Sources */,

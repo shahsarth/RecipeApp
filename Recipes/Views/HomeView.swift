@@ -16,12 +16,20 @@ struct HomeView: View {
     
     var body: some View {
         // ScrollView of Desserts in alphabetical order
-        ScrollView(.vertical){
-                ForEach(mealModel.desserts, id: \.id){ dessert in
-                    MealCardView(dessert: dessert, mealModel: mealModel)
+        NavigationView {
+            ScrollView(.vertical){
+                LazyVStack{
+                    ForEach(mealModel.desserts, id: \.id){ dessert in
+                        NavigationLink(destination: DetailView(dessert: dessert)) {
+                            MealCardView(dessert: dessert, mealModel: mealModel)
+                        }
                         
+                        
+                    }
                 }
+            }
         }
+       
         .padding(.horizontal, 8)
         .onAppear{
             getDesserts()

@@ -39,7 +39,7 @@ class MealViewModel : ObservableObject {
         let desserts = json["meals"]
         var dessertList : [Dessert] = []
         for dessert in desserts {
-            print(dessert)
+//            print(dessert)
             let dessertData = dessert.1
             // Get ingredients list
             var ingredients : [String] = []
@@ -49,6 +49,7 @@ class MealViewModel : ObservableObject {
                 let measurement = dessertData["strMeasure\(String(currNumber))"].stringValue
                 let ingredient = dessertData["strIngredient\(String(currNumber))"].stringValue
                 ingredients.append("\(measurement) \(ingredient)")
+                currNumber += 1
             }
             
             
@@ -63,7 +64,7 @@ class MealViewModel : ObservableObject {
         let desserts = json["meals"]
         var dessertList : [Dessert] = []
         for dessert in desserts {
-            print(dessert)
+//            print(dessert)
             let dessertData = dessert.1
             let newDessert = Dessert(id: dessertData["idMeal"].stringValue, name: dessertData["strMeal"].stringValue, thumbnail: dessertData["strMealThumb"].stringValue)
             dessertList.append(newDessert)
@@ -72,11 +73,20 @@ class MealViewModel : ObservableObject {
     }
     
 //    func parseDessertJSONInformation(json: JSON) -> Dessert {
-//        // Get Ingredients list
-//        let currNumber = 1
+//        let dessertData = dessert.1
+//        // Get ingredients list
+//        var ingredients : [String] = []
+//        var currNumber = 1
 //        
-//        // Get instructions
+//        while dessertData["strIngredient\(String(currNumber))"].stringValue != "" {
+//            let measurement = dessertData["strMeasure\(String(currNumber))"].stringValue
+//            let ingredient = dessertData["strIngredient\(String(currNumber))"].stringValue
+//            ingredients.append("\(measurement) \(ingredient)")
+//        }
 //        
+//        
+//        let newDessert = Dessert(id: dessertData["idMeal"].stringValue, name: dessertData["strMeal"].stringValue, thumbnail: dessertData["strMealThumb"].stringValue, instructions: dessertData["strInstructions"].stringValue, ingredients: ingredients)
+//        return newDessert
 //    }
     
     func fetchDesserts() {
@@ -106,8 +116,11 @@ class MealViewModel : ObservableObject {
         
         downloadData(url: url, parameters: parameters){ retJSON in
             if let json = retJSON {
-                let returnedData = self.parseDessertJSON(json: json)
-                self.desserts = returnedData
+                print("IM HERRRRREEE")
+                let returnedData = self.parseDessertJSONFull(json: json)
+                print(returnedData.description)
+//                self.desserts = returnedData
+                print("IMM HEREEEE 2.000000")
                 
             }
         }
