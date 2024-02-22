@@ -19,7 +19,7 @@ struct HomeView: View {
         ScrollView(.vertical){
             LazyVStack {
                 ForEach(mealModel.desserts, id: \.id){ dessert in
-                    MealCardView(name: dessert.name)
+                    MealCardView(name: dessert.name, img: dessert.thumbnail)
                 }
             }
         }
