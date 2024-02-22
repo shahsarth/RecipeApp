@@ -19,8 +19,7 @@ struct MealCardView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: screenWidth, height: 150)
-                                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 2))
+                                            
 
                     } placeholder: {
                         ProgressView()
@@ -34,27 +33,29 @@ struct MealCardView: View {
                             LinearGradient(gradient: Gradient(stops: [
                                 .init(color: Color.black.opacity(0.01), location: 0),
                                 .init(color: Color.black.opacity(1), location: 1)
-                            ]), startPoint: UnitPoint(x: 0.5, y: 0.05), endPoint: UnitPoint(x: 0.5, y: 0.4))
+                            ]), startPoint: UnitPoint(x: 0.5, y: 0.5), endPoint: UnitPoint(x: 0.5, y: 1))
                         )
                         .edgesIgnoringSafeArea(.top)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                 }
                 
                 VStack (alignment: .leading, spacing: 0) {
-                    
-                    HStack{
+                    Spacer()
+                    HStack {
                         Text(name)
-                            .foregroundColor(.secondary)
-                            .font(.system(size: 12))
+                            .font(.title)
+                            .foregroundColor(.white)
                             .kerning(3)
                             .padding(.bottom, 4)
                         
                         Spacer()
-                    }
+                    }.padding(.horizontal)
                     
                     
                 }
             }
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 2))
             
         }
         .frame(width: screenWidth, height: 150)
