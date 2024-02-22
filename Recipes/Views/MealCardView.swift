@@ -8,17 +8,22 @@
 import SwiftUI
 
 struct MealCardView: View {
-    var name: String
-    var img: String
+    var dessert : Dessert
+    var mealModel : MealViewModel
+    
+    func fetchDessertInformation(){
+        mealModel.fetchDessertInformation(mealID: dessert.id)
+    }
+    
     var body: some View {
         VStack {
             ZStack {
                 VStack {
-                    AsyncImage(url: URL(string: img)) { image in
+                    AsyncImage(url: URL(string: dessert.thumbnail)) { image in
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: screenWidth, height: 150)
+                            .frame(height: 150)
                                             
 
                     } placeholder: {
@@ -42,26 +47,36 @@ struct MealCardView: View {
                 VStack (alignment: .leading, spacing: 0) {
                     Spacer()
                     HStack {
-                        Text(name)
+                        Text(dessert.name)
                             .font(.title)
                             .foregroundColor(.white)
                             .kerning(3)
                             .padding(.bottom, 4)
                         
                         Spacer()
+                        
+                        Image(systemName: "chevron.right")
+                            .font(.title)
+                            .foregroundColor(.white)
+                            .kerning(3)
+                            .padding(.bottom, 4)
                     }.padding(.horizontal)
                     
                     
                 }
+                .padding(.bottom, 8)
             }
             .clipShape(RoundedRectangle(cornerRadius: 10))
-            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 2))
+    
             
         }
-        .frame(width: screenWidth, height: 150)
+        .onTapGesture{
+            fetchDessertInformation()
+        }
+        .frame(height: 150)
     }
 }
 
 #Preview {
-    MealCardView(name: "Apam Balik", img: "https://www.themealdb.com/images/media/meals/adxcbq1619787919.jpg")
+    MealCardView(dessert: Dessert(id: "53049", name: "Apam Balik", thumbnail: "https://www.themealdb.com/images/media/meals/adxcbq1619787919.jpg"), mealModel: MealViewModel())
 }

@@ -19,48 +19,101 @@ class MealViewModel : ObservableObject {
     }
     
     func downloadData(url: String, parameters: Parameters, completion: @escaping (JSON?) -> Void){
+        
+        let _ = AF.request(url, method: .get, parameters: parameters).responseJSON { response in
             
-            let _ = AF.request(url, method: .get, parameters: parameters).responseJSON { response in
+            switch response.result {
+            case let .success(value):
+                let json = JSON(value)
+                completion(json)
                 
-                switch response.result {
-                case let .success(value):
-                    let json = JSON(value)
-                    completion(json)
-                    
-                case let .failure(error):
-                    print("Failure: this is an error")
-                    print(error)
-                    completion(nil)
-                }
+            case let .failure(error):
+                print("Failure: this is an error")
+                print(error)
+                completion(nil)
             }
         }
-
-    func parseDessertJSON(json: JSON) -> [Dessert] {
-            let desserts = json["meals"]
-            var dessertList : [Dessert] = []
-            for dessert in desserts {
-                print(dessert)
-                let dessertData = dessert.1
-                let newDessert = Dessert(id: dessertData["idMeal"].stringValue, name: dessertData["strMeal"].stringValue, thumbnail: dessertData["strMealThumb"].stringValue)
-                dessertList.append(newDessert)
-            }
-            return dessertList
-        }
-
-    func fetchDesserts() {
-            let url = "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert"
-            let parameters: Parameters = [:]
+    }
+    
+    func parseDessertJSONFull(json: JSON) -> [Dessert] {
+        let desserts = json["meals"]
+        var dessertList : [Dessert] = []
+        for dessert in desserts {
+            print(dessert)
+            let dessertData = dessert.1
+            // Get ingredients list
+            var ingredients : [String] = []
+            var currNumber = 1
             
-            downloadData(url: url, parameters: parameters){ retJSON in
-                if let json = retJSON {
-                    let returnedData = self.parseDessertJSON(json: json)
-                    self.desserts = returnedData
-                    
-                }
+            while dessertData["strIngredient\(String(currNumber))"].stringValue != "" {
+                let measurement = dessertData["strMeasure\(String(currNumber))"].stringValue
+                let ingredient = dessertData["strIngredient\(String(currNumber))"].stringValue
+                ingredients.append("\(measurement) \(ingredient)")
+            }
+            
+            
+            let newDessert = Dessert(id: dessertData["idMeal"].stringValue, name: dessertData["strMeal"].stringValue, thumbnail: dessertData["strMealThumb"].stringValue, instructions: dessertData["strInstructions"].stringValue, ingredients: ingredients)
+            dessertList.append(newDessert)
+        }
+        return dessertList
+    }
+    
+    
+    func parseDessertJSON(json: JSON) -> [Dessert] {
+        let desserts = json["meals"]
+        var dessertList : [Dessert] = []
+        for dessert in desserts {
+            print(dessert)
+            let dessertData = dessert.1
+            let newDessert = Dessert(id: dessertData["idMeal"].stringValue, name: dessertData["strMeal"].stringValue, thumbnail: dessertData["strMealThumb"].stringValue)
+            dessertList.append(newDessert)
+        }
+        return dessertList
+    }
+    
+//    func parseDessertJSONInformation(json: JSON) -> Dessert {
+//        // Get Ingredients list
+//        let currNumber = 1
+//        
+//        // Get instructions
+//        
+//    }
+    
+    func fetchDesserts() {
+        let url = "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert"
+        let parameters: Parameters = [:]
+        
+        downloadData(url: url, parameters: parameters){ retJSON in
+            if let json = retJSON {
+                let returnedData = self.parseDessertJSON(json: json)
+                self.desserts = returnedData
+                
             }
         }
-
-
+    }
+    
+    func fetchDessertInformation() {
+        for dessert in self.desserts {
+            fetchDessertInformationByID(mealID: dessert.id)
+            
+        }
+    }
+    
+    func fetchDessertInformationByID(mealID: String) {
+        let url = "https://themealdb.com/api/json/v1/1/lookup.php?i=" + mealID
+        print(url)
+        let parameters: Parameters = [:]
+        
+        downloadData(url: url, parameters: parameters){ retJSON in
+            if let json = retJSON {
+                let returnedData = self.parseDessertJSON(json: json)
+                self.desserts = returnedData
+                
+            }
+        }
+    }
+    
+    
     
 }
 
