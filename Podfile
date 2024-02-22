@@ -1,5 +1,3 @@
-project 'Recipes/Recipes.xcodeproj'
-
 target 'Recipes' do
   
   # Pods for Recipes
