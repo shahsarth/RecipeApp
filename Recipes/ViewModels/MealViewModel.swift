@@ -25,7 +25,6 @@ class MealViewModel : ObservableObject {
         let desserts = json["meals"]
         var dessertList : [Dessert] = []
         for dessert in desserts {
-            //            print(dessert)
             let dessertData = dessert.1
             // Get ingredients list
             var ingredients : [String] = []
@@ -38,7 +37,6 @@ class MealViewModel : ObservableObject {
                 currNumber += 1
             }
             
-            
             let newDessert = Dessert(id: dessertData["idMeal"].stringValue, name: dessertData["strMeal"].stringValue, thumbnail: dessertData["strMealThumb"].stringValue, instructions: dessertData["strInstructions"].stringValue, ingredients: ingredients)
             dessertList.append(newDessert)
         }
@@ -50,30 +48,12 @@ class MealViewModel : ObservableObject {
         let desserts = json["meals"]
         var dessertList : [Dessert] = []
         for dessert in desserts {
-            //            print(dessert)
             let dessertData = dessert.1
             let newDessert = Dessert(id: dessertData["idMeal"].stringValue, name: dessertData["strMeal"].stringValue, thumbnail: dessertData["strMealThumb"].stringValue)
             dessertList.append(newDessert)
         }
         return dessertList
     }
-    
-    //    func parseDessertJSONInformation(json: JSON) -> Dessert {
-    //        let dessertData = dessert.1
-    //        // Get ingredients list
-    //        var ingredients : [String] = []
-    //        var currNumber = 1
-    //
-    //        while dessertData["strIngredient\(String(currNumber))"].stringValue != "" {
-    //            let measurement = dessertData["strMeasure\(String(currNumber))"].stringValue
-    //            let ingredient = dessertData["strIngredient\(String(currNumber))"].stringValue
-    //            ingredients.append("\(measurement) \(ingredient)")
-    //        }
-    //
-    //
-    //        let newDessert = Dessert(id: dessertData["idMeal"].stringValue, name: dessertData["strMeal"].stringValue, thumbnail: dessertData["strMealThumb"].stringValue, instructions: dessertData["strInstructions"].stringValue, ingredients: ingredients)
-    //        return newDessert
-    //    }
     
     // MARK: GET REQUESTS
     
@@ -94,7 +74,6 @@ class MealViewModel : ObservableObject {
         }
     }
     
-    
     func fetchDesserts() {
         let url = "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert"
         let parameters: Parameters = [:]
@@ -105,6 +84,9 @@ class MealViewModel : ObservableObject {
                 for currDessert in returnedData {
                     self.desserts[currDessert.id] = currDessert
                 }
+                self.desserts.sort {
+                    $0.value.name < $1.value.name
+                }
                 self.fetchDessertInformation()
             }
         }
@@ -113,10 +95,7 @@ class MealViewModel : ObservableObject {
     func fetchDessertInformation() {
         for key in self.desserts.keys {
             fetchDessertInformationByID(mealID: key) { retDessert in
-                DispatchQueue.main.async{
-                    self.desserts[key] = retDessert
-                    self.objectWillChange.send()
-                }
+                self.desserts[key] = retDessert
             }
         }
     }
@@ -127,13 +106,8 @@ class MealViewModel : ObservableObject {
         var retVal : [Dessert] = []
         downloadData(url: url, parameters: parameters){ retJSON in
             if let json = retJSON {
-                print("IM HERRRRREEE")
                 retVal = self.parseDessertJSONFull(json: json)
                 completion(retVal[0])
-                
-                print("added to \(retVal[0].name)")
-//                print("IMM HEREEEE 2.000000")
-                
             }
         }
     }

@@ -12,7 +12,6 @@ struct HomeView: View {
     
     func getDesserts() {
         mealModel.fetchDesserts()
-        print(mealModel.desserts)
     }
     
     var body: some View {

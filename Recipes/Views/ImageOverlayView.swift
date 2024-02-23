@@ -9,11 +9,13 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct ImageOverlayView: View {
+    var id: String
     var img: String
     var name: String
     var clickable: Bool
+    
     var body: some View {
-        VStack{
+        VStack {
             ZStack {
                 VStack {
                     WebImage(url: URL(string: img), context: [.imageThumbnailPixelSize: CGSize(width: 500, height: 500)])
@@ -23,7 +25,6 @@ struct ImageOverlayView: View {
                         }
                         .aspectRatio(contentMode: .fill)
                         .frame(height: 150)
-//                    
                 }
                 
                 VStack{
@@ -54,12 +55,8 @@ struct ImageOverlayView: View {
                                 .font(.title)
                                 .foregroundColor(.white)
                                 .kerning(3)
-                            
                         }
-                        
                     }.padding(.horizontal)
-                    
-                    
                 }
                 .padding(.bottom, 8)
             }
@@ -68,5 +65,5 @@ struct ImageOverlayView: View {
 }
 
 #Preview {
-    ImageOverlayView(img: "https://www.themealdb.com/images/media/meals/adxcbq1619787919.jpg", name: "Apam Balik", clickable: false)
+    ImageOverlayView(id: "53049", img: "https://www.themealdb.com/images/media/meals/adxcbq1619787919.jpg", name: "Apam Balik", clickable: false)
 }

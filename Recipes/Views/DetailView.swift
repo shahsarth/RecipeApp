@@ -9,26 +9,24 @@ import SwiftUI
 
 struct DetailView: View {
     @StateObject var dessert : Dessert
+    
     var body: some View {
         ScrollView(.vertical) {
-            // Image and Name at top
-            ImageOverlayView(img: dessert.thumbnail, name: dessert.name, clickable: false)
+            // Image and name at top
+            ImageOverlayView(id: dessert.id, img: dessert.thumbnail, name: dessert.name, clickable: false)
                 .clipShape(RoundedRectangle(cornerRadius: 0))
                 .frame(height: 300)
             
-            
             VStack(alignment: .leading) {
-                // Ingredient View
                 
+                // Ingredient View
                 VStack {
                     HStack {
                         Text("Ingredients")
                             .font(.title)
                             .padding(.bottom, 4)
                         Spacer()
-                        
                     }
-                    
                     
                     if let unwrappedItems = dessert.ingredients {
                         ForEach(unwrappedItems, id: \.self){ ingredient in
@@ -42,12 +40,8 @@ struct DetailView: View {
                                     Spacer()
                                 }
                             }.padding(.leading, 8)
-                            
-                            
                         }
-                        
                     }
-                    
                 }
                 .padding(.bottom, 8)
                 
@@ -61,23 +55,14 @@ struct DetailView: View {
                             
                             Spacer()
                         }
-                        
-                        
                         Text(dessert.instructions ?? "")
                             .font(.body)
                     }
-                    
-                    
                     Spacer()
                 }
             }.padding(.horizontal)
-            
         }
-//        .onAppear{
-//            dessert = mealModel.desserts[dessert.id]
-//        }
         .edgesIgnoringSafeArea(.top)
-        
     }
 }
 
