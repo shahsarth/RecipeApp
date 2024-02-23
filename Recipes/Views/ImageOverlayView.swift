@@ -33,7 +33,7 @@ struct ImageOverlayView: View {
                         .fill(
                             LinearGradient(gradient: Gradient(stops: [
                                 .init(color: Color.black.opacity(0.01), location: 0),
-                                .init(color: Color.black.opacity(1), location: 1)
+                                .init(color: Color.black.opacity(0.6), location: 1)
                             ]), startPoint: UnitPoint(x: 0.5, y: 0.5), endPoint: UnitPoint(x: 0.5, y: 1))
                         )
                         .edgesIgnoringSafeArea(.top)
@@ -45,9 +45,10 @@ struct ImageOverlayView: View {
                     HStack {
                         Text(name)
                             .font(.title)
+                            .fontWeight(.medium)
                             .foregroundColor(.white)
                             .kerning(3)
-                            .padding(.bottom, 4)
+                            .multilineTextAlignment(.leading)
                         
                         Spacer()
                         if clickable {
@@ -55,7 +56,7 @@ struct ImageOverlayView: View {
                                 .font(.title)
                                 .foregroundColor(.white)
                                 .kerning(3)
-                                .padding(.bottom, 4)
+                                
                         }
                         
                     }.padding(.horizontal)
