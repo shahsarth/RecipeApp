@@ -20,17 +20,14 @@ struct DetailView: View {
             VStack(alignment: .leading) {
                 
                 // Ingredient View
-                VStack {
-                    HStack {
-                        Text("Ingredients")
-                            .font(.title)
-                            .padding(.bottom, 4)
-                        Spacer()
-                    }
+                VStack(alignment: .leading) {
+                    
+                    Text("Ingredients")
+                        .font(.title)
                     
                     if let unwrappedItems = dessert.ingredients {
                         ForEach(unwrappedItems, id: \.self){ ingredient in
-                            VStack{
+                            VStack {
                                 HStack {
                                     Image(systemName: "circle.fill")
                                         .foregroundColor(.primary)
@@ -46,19 +43,13 @@ struct DetailView: View {
                 .padding(.bottom, 8)
                 
                 // Instructions View
-                HStack {
-                    VStack{
-                        HStack{
-                            Text("Instructions")
-                                .font(.title)
-                                .padding(.bottom, 4)
-                            
-                            Spacer()
-                        }
-                        Text(dessert.instructions ?? "")
-                            .font(.body)
-                    }
-                    Spacer()
+                VStack(alignment: .leading) {
+                    
+                    Text("Instructions")
+                        .font(.title)
+
+                    Text(dessert.instructions ?? "")
+                        .font(.body)
                 }
             }.padding(.horizontal)
         }
