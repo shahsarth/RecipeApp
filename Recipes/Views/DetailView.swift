@@ -10,70 +10,67 @@ import SwiftUI
 struct DetailView: View {
     var dessert : Dessert
     var body: some View {
-        VStack {
-            ScrollView(.vertical) {
-                // Image and Name at top
-                ImageOverlayView(img: dessert.thumbnail, name: dessert.name, clickable: false)
-                    .clipShape(RoundedRectangle(cornerRadius: 0))
-                    .frame(height: 300)
-                
+        ScrollView(.vertical) {
+            // Image and Name at top
+            ImageOverlayView(img: dessert.thumbnail, name: dessert.name, clickable: false)
+                .clipShape(RoundedRectangle(cornerRadius: 0))
+                .frame(height: 300)
+            
+            
+            VStack(alignment: .leading) {
+                // Ingredient View
                 
                 VStack {
-                    // Ingredient View
                     HStack {
-                        VStack {
-                            HStack {
-                                Text("Ingredients")
-                                    .font(.title)
-                                Spacer()
-                        
-                            }
-                           
-                            
-                            if let unwrappedItems = dessert.ingredients {
-                                ForEach(unwrappedItems, id: \.self){ ingredient in
-                                    HStack {
-                                        Image(systemName: "circle.fill")
-                                            .foregroundColor(.black)
-                                            .font(.system(size: 12))
-                                        Text(ingredient)
-                                            .font(.title3)
-                                        Spacer()
-                                    }
-                                    
-                                }
-                            }
-                                
-                        }
-                        
+                        Text("Ingredients")
+                            .font(.title)
+                            .padding(.bottom, 4)
                         Spacer()
+                        
                     }
                     
-                    // Instructions View
-                    HStack {
-                        VStack{
-                            HStack{
-                                Text("Instructions")
-                                    .font(.title)
-                                
-                                Spacer()
-                            }
+                    
+                    if let unwrappedItems = dessert.ingredients {
+                        ForEach(unwrappedItems, id: \.self){ ingredient in
+                            VStack{
+                                HStack {
+                                    Image(systemName: "circle.fill")
+                                        .foregroundColor(.black)
+                                        .font(.system(size: 12))
+                                    Text(ingredient)
+                                        .font(.title3)
+                                    Spacer()
+                                }
+                            }.padding(.leading, 8)
                             
                             
-                            Text(dessert.instructions ?? "")
-                                .font(.body)
                         }
                         
-
-                        Spacer()
                     }
-                }.padding(.horizontal)
-               
+                    
+                }
+                .padding(.bottom, 8)
                 
-                Spacer()
-                
-                
-            }
+                // Instructions View
+                HStack {
+                    VStack{
+                        HStack{
+                            Text("Instructions")
+                                .font(.title)
+                                .padding(.bottom, 4)
+                            
+                            Spacer()
+                        }
+                        
+                        
+                        Text(dessert.instructions ?? "")
+                            .font(.body)
+                    }
+                    
+                    
+                    Spacer()
+                }
+            }.padding(.horizontal)
             
         }
         .edgesIgnoringSafeArea(.top)

@@ -12,25 +12,28 @@ struct HomeView: View {
     
     func getDesserts() {
         mealModel.fetchDesserts()
+        print(mealModel.desserts)
     }
     
     var body: some View {
         // ScrollView of Desserts in alphabetical order
         NavigationView {
             ScrollView(.vertical){
-                LazyVStack{
-                    ForEach(mealModel.desserts, id: \.id){ dessert in
-                        NavigationLink(destination: DetailView(dessert: dessert)) {
-                            MealCardView(dessert: dessert, mealModel: mealModel)
-                        }
-                        
-                        
+                // If we have more images we might need to wrap in LazyVStack
+                //                LazyVStack{
+                ForEach(mealModel.desserts.values, id: \.id){ dessert in
+                    // Is there better way to do than force unwrapping
+                    NavigationLink(destination: DetailView(dessert: mealModel.desserts[dessert.id]!)) {
+                        MealCardView(dessert: mealModel.desserts[dessert.id]!, mealModel: mealModel)
                     }
+                    .navigationBarTitleDisplayMode(.inline)
+                    
                 }
+                //                }
             }
+            .padding(.horizontal, 8)
+            .navigationBarHidden(true)
         }
-       
-        .padding(.horizontal, 8)
         .onAppear{
             getDesserts()
         }

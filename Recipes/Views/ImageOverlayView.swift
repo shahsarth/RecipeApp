@@ -56,7 +56,7 @@ struct ImageOverlayView: View {
                                 .font(.title)
                                 .foregroundColor(.white)
                                 .kerning(3)
-                                
+                            
                         }
                         
                     }.padding(.horizontal)

@@ -16,9 +16,9 @@ struct MealCardView: View {
             ImageOverlayView(img: dessert.thumbnail, name: dessert.name, clickable: true)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
         }
-//        .onTapGesture{
-//            mealModel.fetchDessertInformationByID(mealID: dessert.id)
-//        }
+        //        .onTapGesture{
+        //            mealModel.fetchDessertInformationByID(mealID: dessert.id)
+        //        }
         .frame(height: 150)
     }
 }
