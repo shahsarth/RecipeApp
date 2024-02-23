@@ -21,10 +21,10 @@ struct HomeView: View {
             ScrollView(.vertical){
                 // If we have more images we might need to wrap in LazyVStack
                 //                LazyVStack{
-                ForEach(mealModel.desserts.values, id: \.id){ dessert in
+                ForEach(mealModel.desserts.keys, id: \.self){ key in
                     // Is there better way to do than force unwrapping
-                    NavigationLink(destination: DetailView(dessert: mealModel.desserts[dessert.id]!)) {
-                        MealCardView(dessert: mealModel.desserts[dessert.id]!, mealModel: mealModel)
+                    NavigationLink(destination: DetailView(dessert: mealModel.desserts[key]!)) {
+                        MealCardView(dessert: mealModel.desserts[key]!, mealModel: mealModel)
                     }
                     .navigationBarTitleDisplayMode(.inline)
                     

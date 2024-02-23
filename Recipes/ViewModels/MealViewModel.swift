@@ -113,8 +113,10 @@ class MealViewModel : ObservableObject {
     func fetchDessertInformation() {
         for key in self.desserts.keys {
             fetchDessertInformationByID(mealID: key) { retDessert in
-                self.desserts[key] = retDessert
-                self.objectWillChange.send()
+                DispatchQueue.main.async{
+                    self.desserts[key] = retDessert
+                    self.objectWillChange.send()
+                }
             }
         }
     }
@@ -128,7 +130,9 @@ class MealViewModel : ObservableObject {
                 print("IM HERRRRREEE")
                 retVal = self.parseDessertJSONFull(json: json)
                 completion(retVal[0])
-                print("IMM HEREEEE 2.000000")
+                
+                print("added to \(retVal[0].name)")
+//                print("IMM HEREEEE 2.000000")
                 
             }
         }

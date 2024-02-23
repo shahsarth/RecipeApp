@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailView: View {
-    var dessert : Dessert
+    @StateObject var dessert : Dessert
     var body: some View {
         ScrollView(.vertical) {
             // Image and Name at top
@@ -35,7 +35,7 @@ struct DetailView: View {
                             VStack{
                                 HStack {
                                     Image(systemName: "circle.fill")
-                                        .foregroundColor(.black)
+                                        .foregroundColor(.primary)
                                         .font(.system(size: 12))
                                     Text(ingredient)
                                         .font(.title3)
@@ -73,6 +73,9 @@ struct DetailView: View {
             }.padding(.horizontal)
             
         }
+//        .onAppear{
+//            dessert = mealModel.desserts[dessert.id]
+//        }
         .edgesIgnoringSafeArea(.top)
         
     }
