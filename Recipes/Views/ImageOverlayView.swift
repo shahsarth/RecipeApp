@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct ImageOverlayView: View {
     var img: String
@@ -15,17 +16,14 @@ struct ImageOverlayView: View {
         VStack{
             ZStack {
                 VStack {
-                    AsyncImage(url: URL(string: img)) { image in
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(height: 150)
-                        
-                        
-                    } placeholder: {
-                        ProgressView()
-                    }
-                    
+                    WebImage(url: URL(string: img), context: [.imageThumbnailPixelSize: CGSize(width: 500, height: 500)])
+                        .resizable()
+                        .placeholder {
+                            ProgressView()
+                        }
+                        .aspectRatio(contentMode: .fill)
+                        .frame(height: 150)
+//                    
                 }
                 
                 VStack{

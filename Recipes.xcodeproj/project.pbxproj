@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6B111049DE704E4C32024887 /* libPods-Recipes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95526124990FF01B8886B4D9 /* libPods-Recipes.a */; };
 		AF41E5E92B86FBC400C72CF5 /* RecipesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41E5E82B86FBC400C72CF5 /* RecipesApp.swift */; };
 		AF41E5EB2B86FBC400C72CF5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF41E5EA2B86FBC400C72CF5 /* ContentView.swift */; };
 		AF41E5ED2B86FBC700C72CF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF41E5EC2B86FBC700C72CF5 /* Assets.xcassets */; };
@@ -23,12 +22,13 @@
 		AF657F4B2B882EC900F8ACC8 /* DequeModule in Frameworks */ = {isa = PBXBuildFile; productRef = AF657F4A2B882EC900F8ACC8 /* DequeModule */; };
 		AF657F4D2B882EC900F8ACC8 /* HashTreeCollections in Frameworks */ = {isa = PBXBuildFile; productRef = AF657F4C2B882EC900F8ACC8 /* HashTreeCollections */; };
 		AF657F4F2B882EC900F8ACC8 /* HeapModule in Frameworks */ = {isa = PBXBuildFile; productRef = AF657F4E2B882EC900F8ACC8 /* HeapModule */; };
+		AF657F522B886F3C00F8ACC8 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AF657F512B886F3C00F8ACC8 /* SDWebImageSwiftUI */; };
+		F5AD9989C41AE9C749E3EC5F /* libPods-Recipes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F172408785373E9699EEE7A /* libPods-Recipes.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		26A7EAFACB26D5B6EEDA5EF1 /* Pods-Recipes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipes.debug.xcconfig"; path = "Target Support Files/Pods-Recipes/Pods-Recipes.debug.xcconfig"; sourceTree = "<group>"; };
-		286F79B8906E5A6E690A8A36 /* Pods-Recipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipes.release.xcconfig"; path = "Target Support Files/Pods-Recipes/Pods-Recipes.release.xcconfig"; sourceTree = "<group>"; };
-		95526124990FF01B8886B4D9 /* libPods-Recipes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Recipes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F172408785373E9699EEE7A /* libPods-Recipes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Recipes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EE0F060DA26292D5306D0D0 /* Pods-Recipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipes.release.xcconfig"; path = "Target Support Files/Pods-Recipes/Pods-Recipes.release.xcconfig"; sourceTree = "<group>"; };
 		AF41E5E52B86FBC300C72CF5 /* Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF41E5E82B86FBC400C72CF5 /* RecipesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesApp.swift; sourceTree = "<group>"; };
 		AF41E5EA2B86FBC400C72CF5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -40,6 +40,7 @@
 		AF41E60A2B8717CE00C72CF5 /* MealCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCardView.swift; sourceTree = "<group>"; };
 		AF41E60C2B8717D900C72CF5 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		AF43B9942B87847500EC0EA8 /* ImageOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOverlayView.swift; sourceTree = "<group>"; };
+		D57C10FBA3A545AB24EF1190 /* Pods-Recipes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recipes.debug.xcconfig"; path = "Target Support Files/Pods-Recipes/Pods-Recipes.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,31 +48,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF657F522B886F3C00F8ACC8 /* SDWebImageSwiftUI in Frameworks */,
 				AF657F4D2B882EC900F8ACC8 /* HashTreeCollections in Frameworks */,
 				AF657F492B882EC900F8ACC8 /* Collections in Frameworks */,
 				AF657F4B2B882EC900F8ACC8 /* DequeModule in Frameworks */,
 				AF657F472B882EC900F8ACC8 /* BitCollections in Frameworks */,
 				AF657F4F2B882EC900F8ACC8 /* HeapModule in Frameworks */,
-				6B111049DE704E4C32024887 /* libPods-Recipes.a in Frameworks */,
+				F5AD9989C41AE9C749E3EC5F /* libPods-Recipes.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2CC82F13997BC26519009822 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				95526124990FF01B8886B4D9 /* libPods-Recipes.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		95D8C7F70D20D8D54997C811 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				26A7EAFACB26D5B6EEDA5EF1 /* Pods-Recipes.debug.xcconfig */,
-				286F79B8906E5A6E690A8A36 /* Pods-Recipes.release.xcconfig */,
+				D57C10FBA3A545AB24EF1190 /* Pods-Recipes.debug.xcconfig */,
+				9EE0F060DA26292D5306D0D0 /* Pods-Recipes.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -82,7 +76,7 @@
 				AF41E5E72B86FBC300C72CF5 /* Recipes */,
 				AF41E5E62B86FBC300C72CF5 /* Products */,
 				95D8C7F70D20D8D54997C811 /* Pods */,
-				2CC82F13997BC26519009822 /* Frameworks */,
+				C1D33C89C466D44BC776F43F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,6 +137,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		C1D33C89C466D44BC776F43F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5F172408785373E9699EEE7A /* libPods-Recipes.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,7 +152,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF41E5F32B86FBC700C72CF5 /* Build configuration list for PBXNativeTarget "Recipes" */;
 			buildPhases = (
-				D5E8FBAF4BF017CEE6050F35 /* [CP] Check Pods Manifest.lock */,
+				EB529ECC2003554FF5A848FF /* [CP] Check Pods Manifest.lock */,
 				AF41E5E12B86FBC300C72CF5 /* Sources */,
 				AF41E5E22B86FBC300C72CF5 /* Frameworks */,
 				AF41E5E32B86FBC300C72CF5 /* Resources */,
@@ -167,6 +169,7 @@
 				AF657F4A2B882EC900F8ACC8 /* DequeModule */,
 				AF657F4C2B882EC900F8ACC8 /* HashTreeCollections */,
 				AF657F4E2B882EC900F8ACC8 /* HeapModule */,
+				AF657F512B886F3C00F8ACC8 /* SDWebImageSwiftUI */,
 			);
 			productName = Recipes;
 			productReference = AF41E5E52B86FBC300C72CF5 /* Recipes.app */;
@@ -198,6 +201,7 @@
 			mainGroup = AF41E5DC2B86FBC300C72CF5;
 			packageReferences = (
 				AF657F452B882EC900F8ACC8 /* XCRemoteSwiftPackageReference "swift-collections" */,
+				AF657F502B886F3C00F8ACC8 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = AF41E5E62B86FBC300C72CF5 /* Products */;
 			projectDirPath = "";
@@ -238,7 +242,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint > /dev/null; then\n  \"${PODS_ROOT}/SwiftLint/swiftlint\"\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		D5E8FBAF4BF017CEE6050F35 /* [CP] Check Pods Manifest.lock */ = {
+		EB529ECC2003554FF5A848FF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -402,7 +406,7 @@
 		};
 		AF41E5F42B86FBC700C72CF5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 26A7EAFACB26D5B6EEDA5EF1 /* Pods-Recipes.debug.xcconfig */;
+			baseConfigurationReference = D57C10FBA3A545AB24EF1190 /* Pods-Recipes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -432,7 +436,7 @@
 		};
 		AF41E5F52B86FBC700C72CF5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 286F79B8906E5A6E690A8A36 /* Pods-Recipes.release.xcconfig */;
+			baseConfigurationReference = 9EE0F060DA26292D5306D0D0 /* Pods-Recipes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -492,6 +496,14 @@
 				minimumVersion = 1.1.0;
 			};
 		};
+		AF657F502B886F3C00F8ACC8 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.6;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -519,6 +531,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AF657F452B882EC900F8ACC8 /* XCRemoteSwiftPackageReference "swift-collections" */;
 			productName = HeapModule;
+		};
+		AF657F512B886F3C00F8ACC8 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AF657F502B886F3C00F8ACC8 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
