@@ -10,7 +10,7 @@ import SDWebImageSwiftUI
 
 struct ImageOverlayView: View {
     var id: String
-    var img: String
+    var image: String
     var name: String
     var clickable: Bool
     
@@ -18,7 +18,8 @@ struct ImageOverlayView: View {
         VStack {
             ZStack {
                 VStack {
-                    WebImage(url: URL(string: img), context: [.imageThumbnailPixelSize: CGSize(width: 500, height: 500)])
+                    WebImage(url: URL(string: image),
+                             context: [.imageThumbnailPixelSize: CGSize(width: 500, height: 500)])
                         .resizable()
                         .placeholder {
                             ProgressView()
@@ -27,7 +28,7 @@ struct ImageOverlayView: View {
                         .frame(height: 150)
                 }
                 
-                VStack{
+                VStack {
                     Rectangle()
                         .fill(
                             LinearGradient(gradient: Gradient(stops: [
@@ -39,7 +40,7 @@ struct ImageOverlayView: View {
                         .frame(maxWidth: .infinity, alignment: .trailing)
                 }
                 
-                VStack (alignment: .leading, spacing: 0) {
+                VStack(alignment: .leading, spacing: 0) {
                     Spacer()
                     HStack {
                         Text(name)
@@ -65,5 +66,5 @@ struct ImageOverlayView: View {
 }
 
 #Preview {
-    ImageOverlayView(id: "53049", img: "https://www.themealdb.com/images/media/meals/adxcbq1619787919.jpg", name: "Apam Balik", clickable: false)
+    ImageOverlayView(id: "53049", image: "https://www.themealdb.com/images/media/meals/adxcbq1619787919.jpg", name: "Apam Balik", clickable: false)
 }

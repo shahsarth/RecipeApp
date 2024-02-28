@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct MealCardView: View {
-    var dessert : Dessert
-    var mealModel : MealViewModel
+    var dessert: Dessert
+    var mealModel: MealViewModel
     
     var body: some View {
         VStack {
-            ImageOverlayView(id: dessert.id, img: dessert.thumbnail, name: dessert.name, clickable: true)
+            ImageOverlayView(id: dessert.id, image: dessert.thumbnail, name: dessert.name, clickable: true)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
         }
         .frame(height: 150)
